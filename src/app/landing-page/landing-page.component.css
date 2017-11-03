@@ -1,0 +1,10 @@
+.jumbotron {
+	background: rgba(189, 199, 236, 0.35);
+}
+
+.card-text {
+	max-height: 210px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}

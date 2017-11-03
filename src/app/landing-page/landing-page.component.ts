@@ -8,18 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-  featuredPet: Pet;
+  featuredPets: Pet[] = [];
 
   constructor(private petSearchService: PetSearchService) { }
 
   ngOnInit() {
-    this.petSearchService.getRandomPet().subscribe((data) => {
+    this.loadRandomPet('cat');
+    this.loadRandomPet('dog');
+    this.loadRandomPet();
+  }
+
+  loadRandomPet(animal?: string) {
+    this.petSearchService.getRandomPet(animal).subscribe((data) => {
       if (data && data.petfinder) {
-        this.featuredPet = data.petfinder.pet;
+        this.featuredPets.push(data.petfinder.pet);
       }
     }, (error) => {
       console.error(error);
     });
   }
-
 }
