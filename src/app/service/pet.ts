@@ -52,8 +52,7 @@ export class Photos {
 }
 
 export class Photo {
-  // TODO response is returned as @size and @id
-  size: string;
+  '@size': string;
   $t: string;
-  id: string;
+  '@id': string;
 }

@@ -22,6 +22,7 @@ export class LandingPageComponent implements OnInit {
     this.petSearchService.getRandomPet(animal).subscribe((data) => {
       if (data && data.petfinder) {
         this.featuredPets.push(data.petfinder.pet);
+        console.log(this.featuredPets[0].media.photos.photo[0]['@size']);
       }
     }, (error) => {
       console.error(error);

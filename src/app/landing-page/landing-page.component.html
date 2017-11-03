@@ -2,7 +2,8 @@
 	<div class="container">
 		<h1 class="display-3">Looking for a furever friend?</h1>
 		<p class="lead">We have over 10,000 animals in need of a home</p>
-		<a class="btn btn-primary btn-lg" href="#" role="button">find a pet</a>
+		<a class="btn btn-primary btn-lg" href="#" role="button">find a
+			pet</a>
 	</div>
 </div>
 
@@ -11,7 +12,9 @@
 	<div class="row">
 		<div class="col-4" *ngFor="let featuredPet of featuredPets">
 			<div class="card">
-				<img class="card-img-top" src="favicon.ico" alt="Featured pet image">
+				<img class="card-img-top"
+					[src]="featuredPet.media?.photos?.photo[2]?.$t"
+					alt="Featured pet image">
 				<div class="card-body">
 					<h4 class="card-title">{{featuredPet?.name?.$t}},
 						{{featuredPet?.age?.$t}}</h4>
@@ -23,5 +26,3 @@
 		</div>
 	</div>
 </div>
-
-<app-application></app-application>
