@@ -1,1 +1,14 @@
-<p>pet-detail works!</p>
+<div class="container-fluid">
+	<h3>{{pet?.name?.$t}}</h3>
+	<h4>ID: {{pet?.id?.$t}}</h4>
+	<div class="row">
+		<div class="col-4">
+			<img class="img-responsive" [src]="pet?.media?.photos?.photo[2]?.$t" alt="pet image">
+		</div>
+		<div class="col-8">
+			<p>{{pet?.description?.$t}}</p><br/>
+			<label>SEX: {{pet?.sex?.$t}}</label>
+			<label>SIZE: {{pet?.size?.$t}}</label>
+		</div>
+	</div>
+</div>

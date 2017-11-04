@@ -13,7 +13,7 @@
 		<div class="col-4" *ngFor="let featuredPet of featuredPets">
 			<div class="card">
 				<img class="card-img-top"
-					[src]="featuredPet.media?.photos?.photo[2]?.$t"
+					[src]="featuredPet?.media?.photos?.photo[2]?.$t"
 					alt="Featured pet image">
 				<div class="card-body">
 					<h4 class="card-title">{{featuredPet?.name?.$t}},

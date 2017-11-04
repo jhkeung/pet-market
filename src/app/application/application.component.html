@@ -3,85 +3,80 @@
 	<p>Applications are non-binding and are prioritized based on
 		submission order. Please email apply@petmarket.com if you have any
 		questions about the application process.</p>
-	<form>
+	<form [formGroup]="form" novalidate>
 		<label class="font-weight-bold">Pet information</label>
 		<div class="form-row">
 			<div class="form-group col-sm-4">
-				<label for="petName">Pet Name</label> <input type="text"
+				<label for="petName">Pet Name</label> <input formControlName="petName" type="text"
 					class="form-control form-control-sm" id="petName"
 					placeholder="Chewbacca">
 			</div>
 			<div class="form-group col-sm-4">
-				<label for="petBreed">Pet Breed</label> <input type="text"
+				<label for="petBreed">Pet Breed</label> <input formControlName="petBreed" type="text"
 					class="form-control form-control-sm" id="petBreed"
 					placeholder="Poodle">
 			</div>
 			<div class="form-group col-sm-4">
-				<label for="petID">Pet ID</label> <input type="text"
-					class="form-control form-control-sm" id="petID"
+				<label for="petId">Pet ID</label> <input formControlName="petId" type="text"
+					class="form-control form-control-sm" id="petId"
 					placeholder="510053">
 			</div>
 		</div>
 		<label class="font-weight-bold">Applicant information</label>
 		<div class="form-row">
 			<div class="form-group col-sm-6">
-				<label for="firstName">First Name</label> <input type="text"
+				<label for="firstName">First Name</label> <input formControlName="firstName" type="text"
 					class="form-control form-control-sm" id="firstName"
 					placeholder="Jane">
 			</div>
 			<div class="form-group col-sm-6">
-				<label for="lastName">Last Name</label> <input type="text"
+				<label for="lastName">Last Name</label> <input formControlName="lastName" type="text"
 					class="form-control form-control-sm" id="lastName"
 					placeholder="Doe">
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="form-group col-sm-6">
-				<label for="inputEmail4">Email</label> <input type="email"
-					class="form-control form-control-sm" id="inputEmail4"
+				<label for="email">Email</label> <input formControlName="email" type="email"
+					class="form-control form-control-sm" id="email"
 					placeholder="hello@petmarket.com">
 			</div>
 			<div class="form-group col-sm-6">
-				<label for="phoneNumber">Phone Number</label> <input type="text"
+				<label for="phoneNumber">Phone Number</label> <input formControlName="phoneNumber" type="text"
 					class="form-control form-control-sm" id="phoneNumber"
 					placeholder="(919) 825-4100">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputAddress">Address</label> <input type="text"
+			<label for="inputAddress">Address</label> <input formControlName="inputAddress" type="text"
 				class="form-control form-control-sm" id="inputAddress"
 				placeholder="1234 Main St">
 		</div>
-		<div class="form-group">
-			<label for="inputAddress2">Address 2</label> <input type="text"
-				class="form-control form-control-sm" id="inputAddress2"
-				placeholder="Apartment, studio, or floor">
-		</div>
 		<div class="form-row">
 			<div class="form-group col-sm-6">
-				<label for="inputCity">City</label> <input type="text"
+				<label for="inputCity">City</label> <input formControlName="inputCity" type="text"
 					class="form-control form-control-sm" id="inputCity"
 					placeholder="Chapel Hill">
 			</div>
 			<div class="form-group col-sm-4">
-				<label for="inputState">State</label> <input type="text"
+				<label for="inputState">State</label> <input formControlName="inputState" type="text"
 					class="form-control form-control-sm" id="inputState"
 					placeholder="NC">
 			</div>
 			<div class="form-group col-sm-2">
-				<label for="inputZip">Zip</label> <input type="text"
+				<label for="inputZip">Zip</label> <input formControlName="inputZip" type="text"
 					class="form-control form-control-sm" id="inputZip"
 					placeholder="27514">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="form-check">
-				<label class="form-check-label"> <input
+				<label class="form-check-label"> <input formControlName="subscribe"
 					class="form-check-input" type="checkbox"> Subscribe to
 					newsletter
 				</label>
 			</div>
 		</div>
-		<button type="submit" class="btn btn-primary">Apply</button>
+		<button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="onSubmit()">Apply</button>
 	</form>
 </div>

@@ -15,7 +15,7 @@ export class PetSearchService {
   constructor(private http: Http) {
   }
 
-  // TODO creat ENUM
+  // TODO create ENUM
   // Acceptable strings are barnyard, bird, cat, dog, horse, reptile, smallfurry
   getRandomPet(animal?: string): Observable<PetResponse> {
     const url = `${this.BASE_URL}/pet.getRandom`;
@@ -27,6 +27,17 @@ export class PetSearchService {
     if (animal) {
       params.set('animal', animal);
     }
+
+    return this.http.get(url, { search: params }).map(response => response.json());
+  }
+
+  getPetDetails(id: string): Observable<PetResponse> {
+    const url = `${this.BASE_URL}/pet.get`;
+    const params: URLSearchParams = new URLSearchParams();
+    params.set('key', this.API_KEY);
+    params.set('format', this.FORMAT);
+    params.set('output', 'basic');
+    params.set('id', id);
 
     return this.http.get(url, { search: params }).map(response => response.json());
   }
