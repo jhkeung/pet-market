@@ -1,5 +1,5 @@
 import { environment } from '../../environments/environment';
-import { PetResponse } from './pet';
+import { PetResponse, PetSearchResponse } from './pet';
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -38,6 +38,21 @@ export class PetSearchService {
     params.set('format', this.FORMAT);
     params.set('output', 'basic');
     params.set('id', id);
+
+    return this.http.get(url, { search: params }).map(response => response.json());
+  }
+
+  searchPets(zip: string, count: string, animal?: string): Observable<PetSearchResponse> {
+    const url = `${this.BASE_URL}/pet.find`;
+
+    const params: URLSearchParams = new URLSearchParams();
+    params.set('key', this.API_KEY);
+    params.set('format', this.FORMAT);
+    params.set('location', zip);
+    params.set('count', count);
+    if (animal) {
+      params.set('animal', animal);
+    }
 
     return this.http.get(url, { search: params }).map(response => response.json());
   }

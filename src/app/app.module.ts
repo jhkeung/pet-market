@@ -12,6 +12,8 @@ import { PetSearchService } from './service/pet-search.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { GalleryComponent } from './gallery/gallery.component';
+import { MockPetSearchService } from './service/mock-pet-search.service';
 
 const appRoutes: Routes = [
   {
@@ -19,8 +21,12 @@ const appRoutes: Routes = [
     component: ApplicationComponent
   },
   {
-    path: 'browse',
+    path: 'browse/:id',
     component: PetDetailComponent
+  },
+  {
+    path: 'browse',
+    component: GalleryComponent
   },
   {
     path: '',
@@ -35,7 +41,8 @@ const appRoutes: Routes = [
     PetDetailComponent,
     HeaderComponent,
     LandingPageComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [PetSearchService],
+  providers: [PetSearchService, MockPetSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

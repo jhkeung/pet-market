@@ -6,6 +6,18 @@ export class PetFinder {
   pet: Pet;
 }
 
+export class PetSearchResponse {
+  petfinder: SearchPetFinder;
+}
+
+export class SearchPetFinder {
+  pets: any;
+}
+
+export class Pets {
+  pet: Pet[];
+}
+
 export class Pet {
   options: DataWrapper[];
   status: DataWrapper;
