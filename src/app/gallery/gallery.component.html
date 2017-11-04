@@ -9,7 +9,7 @@
 					<h4 class="card-title">{{pet?.name?.$t}}, {{pet?.age?.$t}}</h4>
 					<p class="card-text">{{pet?.breeds?.breed?.$t}}</p>
 					<p class="card-text">{{pet?.description?.$t}}</p>
-					<a href="#" class="btn btn-primary inquire-btn">Inquire</a>
+					<a [routerLink]="['/browse', pet?.id?.$t]" class="btn btn-primary inquire-btn">Details</a>
 				</div>
 			</div>
 		</div>

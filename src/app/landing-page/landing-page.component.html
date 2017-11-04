@@ -20,7 +20,7 @@
 						{{featuredPet?.age?.$t}}</h4>
 					<p class="card-text">{{featuredPet?.breeds?.breed?.$t}}</p>
 					<p class="card-text">{{featuredPet?.description?.$t}}</p>
-					<a href="#" class="btn btn-primary inquire-btn">Inquire</a>
+					<a [routerLink]="['/browse', featuredPet?.id?.$t]" class="btn btn-primary inquire-btn">Details</a>
 				</div>
 			</div>
 		</div>
